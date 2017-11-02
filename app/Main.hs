@@ -6,10 +6,13 @@ import Lib
 -- | IO is a type class for input/output
 -- | () unit, called unit, tuple with 0 elements
 -- | Side effect is that the characters are written to the terminal
+
+
 main :: IO ()
 
+
 -- | Call the function you want from this line ex. main = helloWorld
-main = processNumbers
+-- | main helloWorld
 
 -- | Adds 10 to each member of the list 1,2,3 results in 11,12,13
 addTenToList = print $ map (+10) [1,2,3]
@@ -78,6 +81,34 @@ processNumbers = do
   print total
   print mean
   print range
+
+-- | Show the power of chaining functions with the dot operator
+doubleIt x = x*2
+chain = addTen . doubleIt
+-- | funcChaining = print $ map chain [1,2,3,4,5]
+
+-- | We can do the same thing with an anonymous function, without naming it "chain"
+funcChaining = print $ map (addTen . doubleIt) [1,2,3,4,5]
+
+-- | Using a lambda
+-- | all three are equivalent
+-- | \x y -> x + y
+-- | \x -> \y -> x + y
+-- | \x -> (\y -> x + y)
+parenWords = print $ parenthesizeWords "we love haskell"
+
+-- | parenthesizeWords s = unwords $ map parenthesizeWord (words s)
+       -- | different s in child scope
+-- |   where parenthesizeWord s  = "(" ++ s ++ ")"
+
+-- | It can also be rewritten using a lambda as below
+parenthesizeWords s = unwords $ map (\s -> "(" ++ s ++ ")") (words s)
+
+
+main = parenWords
+
+
+
 
 
 

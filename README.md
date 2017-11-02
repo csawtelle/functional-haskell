@@ -113,6 +113,47 @@ Prelude :kind Num (shows kind of type, types have "kinds" not values)
 Prelude :info Num (shows all the info about a kind)
 Prelude :load Program (loads program in interpreter mode)
 -- Can look at types of values, info of values
+Prelude :reload (Reload program, if changed in while interpreting, will auto reload)
+
+
+### Debugging
+[maybe putStrLn lines] is a valid way to debug, but not the best
+Prelude :l
+Prelude :b(reak) <func>
+Here you can set a breakpoint on a function like minMax
+Prelude :break minMax
+Prelude :b readInts
+Can run the program by doing :main and it will hit the break point with all information
+in the break, you can examine a function by doing :type <func>, :sprint <func>
+due to lazy loading, you may need to force execute it by doing :force <ws>
+
+_ is unforced fun, can force to evaluate it
+
+values are only evaluated when they are needed
+
+:list or :li we can see where we are in the code (shows the code around the break)
+
+:show breaks
+will show where the breakpoints are
+
+:show bindings
+will show all the variable bindings
+
+:abandon :ab
+will abandon the evaluations
+
+:delete <breakpoint>
+
+### Haskell in depth
+#### Values and expressions
+Primitive types: 
+Char - enumeration of unicode
+Integer - mathematical integer
+Int - machine integer, 64 bit signed 
+Float, Double
+
+. operator will run a function on another functions
+(addTen . doubleIt) 5
 
 
 References:
