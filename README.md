@@ -157,6 +157,6 @@ Float, Double
 
 
 References:
-https://www.cs.kent.ac.uk/people/staff/dat/miranda/whyfp90.pdf
-https://www.udemy.com/learning-path-haskell-functional-programming-and-haskell/
-
+* https://www.cs.kent.ac.uk/people/staff/dat/miranda/whyfp90.pdf
+* https://www.udemy.com/learning-path-haskell-functional-programming-and-haskell/
+* http://learnyouahaskell.com/
